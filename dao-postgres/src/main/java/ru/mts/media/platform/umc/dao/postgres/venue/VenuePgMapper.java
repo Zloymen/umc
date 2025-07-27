@@ -3,12 +3,13 @@ package ru.mts.media.platform.umc.dao.postgres.venue;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import ru.mts.media.platform.umc.dao.postgres.common.FullExternalIdPk;
+import ru.mts.media.platform.umc.dao.postgres.event.EventListMapper;
 import ru.mts.media.platform.umc.domain.gql.types.FullExternalId;
 import ru.mts.media.platform.umc.domain.gql.types.Venue;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 
-@Mapper(componentModel = SPRING)
+@Mapper(componentModel = SPRING, uses = {EventListMapper.class})
 public interface VenuePgMapper {
     @Mapping(target = "externalId.brandId", source = "brand")
     @Mapping(target = "externalId.providerId", source = "provider")

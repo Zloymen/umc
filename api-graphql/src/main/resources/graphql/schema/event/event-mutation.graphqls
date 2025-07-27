@@ -1,0 +1,5 @@
+extend type Mutation {
+    saveEvent(
+        input: SaveEventInput!,
+    ): Event
+}
